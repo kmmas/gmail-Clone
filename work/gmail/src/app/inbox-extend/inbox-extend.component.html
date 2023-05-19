@@ -1,0 +1,50 @@
+<div class="all">
+    <div class="messagebox">
+        <div class="sentinfo">
+            <div class="from">
+                <label class="label" for="">From:</label>
+                <p class="infrom">{{ViewedEmail.sender}}</p>
+            </div>
+            <div class="from" style="margin-bottom: 10px;">
+                <label class="label" for="">To:</label>
+                <p class="infrom" type="text">{{ViewedEmail.recievers}}</p>
+            </div>
+            <div class="from" style="margin-bottom: 10px;">
+                <label class="label" for="">priority:</label>
+                <p class="infrom" type="text">{{ViewedEmail.priority}}</p>
+            </div>
+            <div class="from" style="margin-bottom: 10px;">
+                <label class="label" for="">Subject:</label>
+                <p class="infrom" type="text">{{ViewedEmail.subject}}</p>
+            </div>
+            <div class="from" style="margin-bottom: 10px;">
+                <label class="label" for="">Attachment:</label>
+                <p class="infrom" type="text" style="overflow-y: auto;">{{ViewedEmail.attachmentsList}}</p>
+                <button class="downl" (click)="downloadFile()">Download</button>
+            </div>
+            <div class="subject">
+                <div>
+                    <label class="labsub" for="">Body:</label>
+                </div>
+                <article style="overflow-y: auto;" name="Text1" class="insub">{{ViewedEmail.body}}</article>
+            </div>
+        </div>
+        <div class="sentbut">
+            <div class="icontot">
+                <button class="cancel" routerLink="../homepage" (click)="MoveEmail()">Move</button>
+            </div>
+            <div class="icontot">
+                <button class="cancel" routerLink="../homepage" (click)="DeleteEmail()">Delete</button>
+            </div>
+            <div class="icontot">
+                <button class="cancel" routerLink="../homepage">Cancel</button>
+            </div>
+            <div class="icontot">
+                <button class="cancel" routerLink="../compose" (click)="Reply()" *ngIf="EnableReply">Reply</button>
+            </div>
+            <div class="icontot">
+                <button class="cancel" routerLink="../compose" (click)="Edit()" *ngIf="EnableEdit">use Draft</button>
+            </div>
+        </div>
+    </div>
+</div>

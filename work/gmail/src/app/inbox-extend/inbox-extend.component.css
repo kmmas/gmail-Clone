@@ -1,0 +1,169 @@
+.all{
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messagebox{
+    height: 80%;
+    width: 70%;
+    border: solid 1px rgb(0, 0, 0);
+    border-radius: 15px;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(220, 218, 218, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.titlemessage{
+margin: 0;
+border: 1px solid;
+width: 70%;
+padding: 10px;
+margin-bottom: 5px;
+font-size: 20px;
+font-weight: 500;
+border-radius: 25px;
+background-color: rgba(198, 197, 197, 0.8);
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.ptitlemessage{
+    margin: 0;
+}
+.sentinfo{
+display: flex;
+flex-direction: column;
+width: 95%;
+height: 80%;
+border: 1px solid;
+background-color: white;
+border-radius: 15px;
+padding: 20px;
+}
+.sentbut{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 15%;
+    border: 1px solid;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.from{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.infrom{
+    width: 60%;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    overflow: hidden;
+}
+.label{
+    font-size: 18px;
+    font-weight: 500;
+    width: 110px;
+}
+.subject{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.labsub{
+    font-size: 18px;
+    font-weight: 500;
+    width: 5%;
+    height: 12%;
+}
+.insub{
+    width: 65%;
+    height: 80%;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.cancelsend{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid; */
+    justify-content: space-between;
+}
+.cancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 130px;
+    border: 1.5px solid black;
+    border-radius: 30px;
+    margin-right: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 1px 3px rgba(209, 208, 208, 0.8);
+    font-size: 16.5px;
+    font-weight: 620;
+}
+.cancel:hover{
+    background-color: rgb(239, 237, 237);
+}
+.cancel:active{
+font-size: 16px;
+}
+.icontot{
+    width: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.appear{
+}
+.disappear{
+    display: none;
+}
+*{
+    white-space: pre-line;
+}
+.downl{
+    border-radius: 20px;
+    background-color: rgb(235, 235, 235);
+    width: 100px;
+    height: 32px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.downl:hover{
+    background-color: white;
+}
+.downl:active{
+    font-size: 13px;
+}

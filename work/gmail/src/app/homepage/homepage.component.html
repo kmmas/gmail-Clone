@@ -1,0 +1,115 @@
+<div class="all">
+    <nav>
+        <div class="leftnav">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                    style="margin-right: 8px;" width="30px" height="30px" alt="eeee">
+                <h3 style="font-weight: bold; text-align: center;">Gmail</h3>
+            </div>
+            <div>
+                <button class="compose" routerLink="../compose">Compose</button>
+            </div>
+            <div>
+                <button class="compose" routerLink="../contacts">Contacts</button>
+            </div>
+        </div>
+        <div class="rightnav">
+            <h6 style="font-weight: bold; text-align: center ;font-size: 16.5px; width: 350px;">{{address}}</h6>
+            <button type="button" class="logout" routerLink="../login">Log Out <svg
+                    style="width: 20px; height: 20px; margin-left: 10px" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z" />
+                </svg></button>
+        </div>
+    </nav>
+    <section>
+        <div class="folders">
+            <button class="Emailfolder" (click)="GetEmailsFromFolder('inbox')">Inbox</button>
+            <button class="Emailfolder" (click)="GetEmailsFromFolder('sent')">Sent</button>
+            <button class="Emailfolder" (click)="GetEmailsFromFolder('trash')">Trash</button>
+            <button class="Emailfolder" (click)="GetEmailsFromFolder('draft')">Draft</button>
+            <button class="Emailfolder" (click)="CreateFolder()">create new folder</button>
+            <button *ngFor="let folder of UserMadeFolders" class="Emailfolder2">
+                <div (click)="GetEmailsFromFolder(folder)" class="renm">
+                    {{folder}}
+                </div>
+                <div class="renren">
+                    <button (click)="RenameFolder(folder)" class="ren">rename</button>
+                    <button (click)="DeleteFolder(folder)" class="ren">delete</button>
+                </div>
+            </button>
+        </div>
+        <div class="messages">
+            <div class="putcenter">
+                <!-- [ngClass]="{'appear' : toggleI, 'disappear': !toggleI}" -->
+                <div class="alll" >
+                    <div class="rearrange">
+                        <p class="tit" >{{SelectedTab}}</p>
+                        <div class="filterr">
+                            <div class="dropdown">
+                                <select class="fil" [(ngModel)]="sorting" (change)="Update()">
+                                    <option *ngFor="let sort of SortByArray" [ngValue]="sort.id">{{sort.name}}</option>
+                                </select>
+                                
+                              </div>
+                              <div class="dropdown">
+                                <button class="fil">Filter</button>
+                                <div class="dropdown-content add" >
+                                    <label for="">Apply filter</label>
+                                    <input type="checkbox" style="margin-left: 8px;"  [(ngModel)]="ApplyFilter" (ngModelChange)="Update()">
+                                    <div style="height: 60px;">
+                                    Subject:
+                                    <input type="text" style="border-radius: 20px; width: 100%;" [(ngModel)]="choosedfilter.subject" (ngModelChange)="Update()">
+                                    </div>
+                                    <div style="height: 60px;">
+                                    Sender:
+                                    <input type="text" style="border-radius: 20px; width: 100%;" [(ngModel)]="choosedfilter.sender" (ngModelChange)="Update()">
+                                    </div>
+                                  <div class="radiodisplay">
+                                    <div style="font-weight: bold; display: flex;flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%;">
+                                        <p class="mode">Filter Mode:</p>
+                                        <div>
+                                            <input type="radio" name="filteroption" [value]="1" [(ngModel)]="choosedfilter.option"> And
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="filteroption" [value]="0" [(ngModel)]="choosedfilter.option"> Or
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <button class="fillbut" (click)="ResetFilter()">Reset Filter</button>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div *ngIf="DisplayEdit" class="movedelete">
+                        <button (click)="MoveEmails()" class="movedebut">Move</button>
+                        <button (click)="DeleteEmailsTmp()"class="movedebut">Delete</button>
+                    </div>
+                    <div class="checkbox" *ngFor="let email of Emails">
+                        <input class="checkbutton" type="checkbox" (click)="SelectEmail(email.id)">
+                        <button class="line" routerLink="../viewemail" (click)="ViewEmail(email)">
+                            <div class="mainItem">
+                                <div class="email">
+                                    <div>From: {{email.sender}}</div>
+                                    <div>to: {{email.recievers}}</div>
+                                    
+                                </div>
+                                <div class="email">
+                                    <div>Subject: {{email.subject}}</div>
+                                    <div>priority: {{email.priority}}</div>
+                                </div>
+                                <div class="email">
+                                    <div>Date: {{email.date}}</div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>             
+                    </div>
+                    <!-- <div class="arcextend" [ngClass]="{'disappear' : toggleI, 'appear': !toggleI}">
+                        <app-inbox-extend class="arcextend" (messageEvent)="receiveMessage($event)"></app-inbox-extend>
+                    </div> -->
+            </div>            
+        </div>
+    </section>
+</div>

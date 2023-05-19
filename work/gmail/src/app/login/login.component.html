@@ -1,0 +1,27 @@
+<div class="body">
+  
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true" >
+
+			<div class="signup">
+				<form>
+          <label for="chk" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" style="margin-right: 10px;" width="50px" height="50px" alt="eeee">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" id="name" [(ngModel)]="username" required>
+					<input type="email" name="email" placeholder="Email" id="email" [(ngModel)]="email"required>
+					<input type="password" name="pswd" placeholder="Password" id="pass" [(ngModel)]="password" required>
+					<button type="submit" (click)="signup()">Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" id="email" [(ngModel)]="email" required>
+					<input type="password" name="pswd" placeholder="Password" id="pass" [(ngModel)]="password" required>
+					<button type="submit" (click)="signin()">Login</button>
+					<p style="display: flex; flex-direction: row; justify-content: center;align-items: center; font-weight: bold;">Welcome to Gmail<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" style="margin-left: 15px; margin-top: 10px;" width="50px" height="50px" alt="eeee"></p>
+				</form>
+			</div>
+	</div>
+</div>
+
